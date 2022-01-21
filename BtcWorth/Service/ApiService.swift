@@ -20,7 +20,10 @@ class ApiService {
                 for item in btcArr.filter({ $0.symbol.prefix(baseSymbol.count) == baseSymbol }) {
                     if item.symbol.count - baseSymbol.count < 5 {
                     DispatchQueue.main.async {
-                        let firstImage = UIImage(named: baseSymbol) ?? UIImage(named: "404")
+                        var firstImage = UIImage(named: baseSymbol)
+                        if firstImage == nil {
+                            firstImage = UIImage(named: "404")
+                        }
                         let secondName = item.symbol.suffix(item.symbol.count - baseSymbol.count)
                         let secondImage = UIImage(named: String(secondName)) ?? UIImage(named: "404")
                         let curr = CurrencyModel(firstImage: firstImage!, firstName: baseSymbol, firstValue: 1, secondImage: secondImage!, secondName: String(secondName), secondValue: Double(item.price)!)

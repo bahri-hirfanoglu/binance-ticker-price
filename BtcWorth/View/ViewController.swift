@@ -18,8 +18,8 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
-        load()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Change", style: .done, target: self, action: #selector(addTapped))
+        print("viewDidLoad")
     }
     
     func load(){
@@ -50,6 +50,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
         load()
     }
     

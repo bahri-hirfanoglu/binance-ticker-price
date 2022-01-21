@@ -20,8 +20,6 @@ extension ViewController: UICollectionViewDataSource {
         cell.setup(with: currencyData[indexPath.row])
         return cell
     }
-    
-    
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
